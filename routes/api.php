@@ -18,8 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('idlescape', function() {
-    if($name = request()->has('name'))
+    if(request()->has('name'))
     {
+        $name = request('name');
         $user = \App\IdleScapeUsers::firstOrCreate([
             'username'  =>  $name
         ]);
