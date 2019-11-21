@@ -17,12 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('idlescape', function() {
-    if(request()->has('name'))
-    {
-        $name = request('name');
-        $user = \App\IdleScapeUsers::firstOrCreate([
+Route::post('idlescape/{name}', function() {
+        $name = request()->route('name');
+        $user = \App\IdleScapeUsers::firstOrNew([
             'username'  =>  $name
         ]);
-    }
+        $user->save();
 });
