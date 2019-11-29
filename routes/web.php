@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::domain('titan.pbbg.io')->group(function() {
     Route::get('/', function() {
         echo 'Titan';
     });
+});
+
+Route::get('/', function () {
+    return view('welcome');
 });
