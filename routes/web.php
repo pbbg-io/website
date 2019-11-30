@@ -12,9 +12,7 @@
 */
 
 Route::domain('titan.pbbg.io')->group(function() {
-    Route::get('/', function() {
-        echo 'Titan';
-    });
+    Route::get('/', 'TitanController@index');
 });
 
 Route::get('/titan', 'TitanController@index');
