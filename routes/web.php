@@ -17,6 +17,10 @@ Route::domain('titan.pbbg.io')->group(function() {
     });
 });
 
+Route::get('/titan', 'TitanController@index');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+

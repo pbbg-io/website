@@ -1,0 +1,21 @@
+//
+html, body {
+    height: 100%;
+    width: 100%;
+}
+@import '~bootstrap/scss/bootstrap';
+
+
+#main-nav {
+    ul li {
+        a {
+            display: block;
+            padding: 10px;
+        }
+    }
+}
+
+.o-50 {
+    opacity: 50%;
+}
+
