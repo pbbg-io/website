@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="text-center" id="intro-heading">
-            <h1 class="">Titan</h1>
+            <h1 class="display-2">Titan</h1>
             <h5>Text based game engine to develop Persistent Browser Based Games</h5>
         </div>
     </section>

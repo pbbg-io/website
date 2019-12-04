@@ -9,17 +9,18 @@
     <link rel="stylesheet" href="{{ mix('css/titan.css') }}">
 
     <title>{{ config('app.name') }}</title>
+
 </head>
 <body>
 
 
-<div class="d-md-none position-absolute z-100">
+<div class="d-md-none fixed-top" id="toggle-nav-parent">
     <a href="#" id="toggle-nav" style="padding: 50px;" class="d-block">
         <i class="fas fa-bars"></i>
     </a>
 </div>
 
-<nav class="text-center fixed-top d-none d-md-flex justify-content-center align-content-center" id="main-nav">
+<nav class="text-center fixed-top d-none d-md-flex justify-content-center align-content-center d-flex open" id="main-nav">
     <ul class="list-unstyled mb-0 p-2">
         <li class="d-inline-block">
             <a href="#intro"><i class="fas fa-raindrops"></i> Intro</a>
@@ -49,7 +50,7 @@
     (function(){
         document.getElementById('toggle-nav').addEventListener('click', function() {
             let nav = document.getElementById("main-nav");
-            nav.classList.toggle('d-block');
+            nav.classList.toggle('d-flex');
             nav.classList.toggle('open');
         });
     })();

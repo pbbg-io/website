@@ -7,7 +7,10 @@ $primary: orange;
 @import '~bootstrap/scss/bootstrap';
 @import 'stars';
 
+#toggle-nav-parent {
 
+    z-index: 999999;
+}
 #main-nav {
     background: rgba(0,0,0,0.6);
 
@@ -25,12 +28,31 @@ $primary: orange;
 
     &.open {
         top: 0;
-    }
+        height: 100%;
 
-    @include media-breakpoint-down(sm){
+        width: 100%;
+        z-index: 99999;
+        background: rgba(0,0,0,1);
 
-        &.open {
-            top: 120px;
+        ul {
+            justify-content: center;
+            align-content: center;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            flex-direction: column;
+
+            li {
+                border: 1px solid transparent;
+                padding: 20px 80px;
+                &:hover {
+                    border: 1px solid $primary;
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
         }
     }
 }
@@ -51,8 +73,6 @@ $primary: orange;
         color: #FFF;
         text-align: center;
         font-family: "lato", sans-serif;
-        font-weight: 300;
-        font-size: 50px;
     }
 
     h1, h5 {
