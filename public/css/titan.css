@@ -11455,8 +11455,13 @@ a.text-dark:focus {
   z-index: 999999;
 }
 
+#toggle-nav-parent a {
+  outline: none;
+}
+
 #main-nav {
   background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid #773701;
 }
 
 #main-nav ul li a {
@@ -11464,39 +11469,38 @@ a.text-dark:focus {
   padding: 10px;
 }
 
-#main-nav.open {
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 99999;
-  background: black;
-}
+@media (max-width: 991.98px) {
+  #main-nav.open {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 99999;
+    background: black;
+  }
 
-#main-nav.open ul {
-  -webkit-box-pack: center;
-          justify-content: center;
-  align-content: center;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  justify-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-}
+  #main-nav.open ul {
+    -webkit-box-pack: center;
+            justify-content: center;
+    align-content: center;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    justify-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
 
-#main-nav.open ul li {
-  border: 1px solid transparent;
-  padding: 20px 80px;
-}
+  #main-nav.open ul a {
+    border: 1px solid transparent;
+    padding: 20px 80px;
+    text-decoration: none;
+  }
 
-#main-nav.open ul li:hover {
-  border: 1px solid orange;
-}
-
-#main-nav.open ul li:hover a {
-  text-decoration: none;
+  #main-nav.open ul a:hover {
+    border: 1px solid orange;
+  }
 }
 
 .o-50 {

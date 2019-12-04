@@ -23,13 +23,14 @@
 <nav class="text-center fixed-top d-none d-md-flex justify-content-center align-content-center" id="main-nav">
     <ul class="list-unstyled mb-0 p-2">
         <li class="d-inline-block">
-            <a href="#intro"><i class="fas fa-raindrops"></i> Intro</a>
+            <a href="#intro" onclick="hideMenu()"><i class="fas fa-raindrops"></i> Intro</a>
         </li>
         <li class="d-inline-block">
-            <a href="#features"><i class="fas fa-puzzle-piece"></i> Features</a>
+            <a href="#install" onclick="hideMenu()"><i class="fas fa-meteor"></i> Install</a>
         </li>
+
         <li class="d-inline-block">
-            <a href="#install"><i class="fas fa-meteor"></i> Install</a>
+            <a href="#features" onclick="hideMenu()"><i class="fas fa-puzzle-piece"></i> Features</a>
         </li>
         <li class="d-inline-block">
             <a href="https://pbbg-io.gitbook.io/titan"><i class="fas fa-books"></i> Documentation</a>
@@ -53,7 +54,13 @@
             nav.classList.toggle('d-flex');
             nav.classList.toggle('open');
         });
+
     })();
+
+    function hideMenu() {
+
+        document.getElementById('toggle-nav').click();
+    }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

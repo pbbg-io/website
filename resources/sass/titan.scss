@@ -10,9 +10,14 @@ $primary: orange;
 #toggle-nav-parent {
 
     z-index: 999999;
+
+    a {
+        outline: none;
+    }
 }
 #main-nav {
     background: rgba(0,0,0,0.6);
+    border-bottom: 1px solid darken($orange, 30%);
 
     ul li {
         a {
@@ -26,35 +31,38 @@ $primary: orange;
         }
     }
 
-    &.open {
-        top: 0;
-        height: 100%;
+    @include media-breakpoint-down(md)
+    {
+        &.open {
+            top: 0;
+            height: 100%;
 
-        width: 100%;
-        z-index: 99999;
-        background: rgba(0,0,0,1);
+            width: 100%;
+            z-index: 99999;
+            background: rgba(0,0,0,1);
 
-        ul {
-            justify-content: center;
-            align-content: center;
-            display: flex;
-            align-items: center;
-            justify-items: center;
-            flex-direction: column;
+            ul {
+                justify-content: center;
+                align-content: center;
+                display: flex;
+                align-items: center;
+                justify-items: center;
+                flex-direction: column;
 
-            li {
-                border: 1px solid transparent;
-                padding: 20px 80px;
-                &:hover {
-                    border: 1px solid $primary;
+                a {
+                    border: 1px solid transparent;
+                    padding: 20px 80px;
+                    text-decoration: none;
 
-                    a {
-                        text-decoration: none;
+                    &:hover {
+                        border: 1px solid $primary;
                     }
                 }
             }
         }
     }
+
+
 }
 
 .o-50 {

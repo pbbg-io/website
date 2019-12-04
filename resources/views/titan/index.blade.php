@@ -19,9 +19,35 @@
         </div>
     </section>
 
+
+    <section id="install" class="m-5 p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Install</h2>
+                    <p>Installation is simple, it comes down to just a few commands in your terminal and you'll be up and ready in a few moments</p>
+
+                    <div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Titan is still in development and is not in a stable so use with caution</div>
+
+                    <pre class="bg-dark text-white-50">
+
+    $ composer create-project pbbg-io/titan-demo -s dev
+    $ cd titan-demo
+    $ php artisan titan:install
+    $ php artisan titan:resources
+    $ yarn && yarn run production
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="features" class="m-5 bg-light p-5">
         <div class="container">
             <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <h2 class="mb-5">Features</h2>
+                </div>
                 @foreach($features as $feature_title => $feature)
                     <div class="col-sm-12 col-md-4 feature-item @if($loop->iteration != count($features)) mb-5 @endif text-center">
                         <div class="text-center">
@@ -46,7 +72,7 @@
                 <h3>Best of all, it's free, forever</h3>
                 <h4>Open Source on Github</h4>
                 <div class="p-5">
-                    <a href="https://github.com/pbbg-io/titan"><i class="fab fa-github fa-4x"></i> </a>
+                    <a href="https://github.com/pbbg-io/titan-demo"><i class="fab fa-github fa-4x"></i> </a>
                 </div>
                 <p>Contribute by reporting issues, developing the core, or building extensions</p>
 
