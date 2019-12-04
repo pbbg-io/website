@@ -19,17 +19,31 @@
         </div>
     </section>
 
+    <div class="content-requires-menu">
 
-    <section id="install" class="my-3 py-3 m-md-5 p-md-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2>Install</h2>
-                    <p>Installation is simple, it comes down to just a few commands in your terminal and you'll be up and ready in a few moments</p>
+        <nav class="text-center position-sticky d-none d-md-flex justify-content-center align-content-center" id="floating-nav">
+            <ul class="list-unstyled mb-0 p-2">
+                <li class="d-inline-block">
+                    <a href="#intro" class="d-block" onclick="hideMenu()"><i class="fas fa-raindrops"></i> Intro</a>
+                </li>
+                <li class="d-inline-block">
+                    <a href="#install" class="d-block" onclick="hideMenu()"><i class="fas fa-meteor"></i> Install</a>
+                </li>
+                <li class="d-inline-block">
+                    <a href="#features" class="d-block" onclick="hideMenu()"><i class="fas fa-puzzle-piece"></i> Features</a>
+                </li>
+            </ul>
+        </nav>
+        <section id="install" class="my-3 py-3 m-md-5 p-md-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Install</h2>
+                        <p>Installation is simple, it comes down to just a few commands in your terminal and you'll be up and ready in a few moments</p>
 
-                    <div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Titan is still in development and is not in a stable so use with caution</div>
+                        <div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Titan is still in development and is not in a stable so use with caution</div>
 
-                    <pre class="bg-dark text-white-50">
+                        <pre class="bg-dark text-white-50">
 &nbsp;
     $ composer create-project pbbg-io/titan-demo -s dev
     $ cd titan-demo
@@ -37,47 +51,50 @@
     $ php artisan titan:resources
     $ yarn && yarn run production
                     </pre>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="my-3 py-3 m-md-5 p-md-5 bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <h2 class="mb-5">Features</h2>
-                </div>
-                @foreach($features as $feature_title => $feature)
-                    <div class="col-sm-12 col-md-4 feature-item @if($loop->iteration != count($features)) mb-5 @endif text-center">
-                        <div class="text-center">
-                            <div class="icon p-4 text-primary">
-                                <i class="{{ $feature['icon'] }} fa-3x"></i>
-                            </div>
-                            <h3>{{ $feature_title }}</h3>
-                        </div>
-                        <p>{{ $feature['description'] }}</p>
                     </div>
-                    @if($loop->iteration % 3 == 0)
-                        <div class="w-100"></div>
-                    @endif
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <section id="github" class="my-3 py-3 m-md-5 p-md-5">
-        <div class="container">
-            <div class="col text-center">
-                <h3>Best of all, it's free, forever</h3>
-                <h4>Open Source on Github</h4>
-                <div class="p-5">
-                    <a href="https://github.com/pbbg-io/titan-demo"><i class="fab fa-github fa-4x"></i> </a>
                 </div>
-                <p>Contribute by reporting issues, developing the core, or building extensions</p>
-
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="features" class="my-3 py-3 m-md-5 p-md-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h2 class="mb-5">Features</h2>
+                    </div>
+                    @foreach($features as $feature_title => $feature)
+                        <div class="col-sm-12 col-md-4 feature-item @if($loop->iteration != count($features)) mb-5 @endif text-center">
+                            <div class="text-center">
+                                <div class="icon p-4 text-primary">
+                                    <i class="{{ $feature['icon'] }} fa-3x"></i>
+                                </div>
+                                <h3>{{ $feature_title }}</h3>
+                            </div>
+                            <p>{{ $feature['description'] }}</p>
+                        </div>
+                        @if($loop->iteration % 3 == 0)
+                            <div class="w-100"></div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+        <section id="github" class="my-3 py-3 m-md-5 p-md-5">
+            <div class="container">
+                <div class="col text-center">
+                    <h3>Best of all, it's free, forever</h3>
+                    <h4>Open Source on Github</h4>
+                    <div class="p-5">
+                        <a href="https://github.com/pbbg-io/titan-demo"><i class="fab fa-github fa-4x"></i> </a>
+                    </div>
+                    <p>Contribute by reporting issues, developing the core, or building extensions</p>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+
 
 @endsection

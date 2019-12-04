@@ -7,6 +7,10 @@ $primary: orange;
 @import '~bootstrap/scss/bootstrap';
 @import 'stars';
 
+#nav-spacer {
+    height: 100px;
+}
+
 #toggle-nav-parent {
 
     z-index: 999999;
@@ -19,7 +23,13 @@ $primary: orange;
     background: rgba(0,0,0,0.8);
     border-bottom: 1px solid darken($orange, 40%);
 
-    ul li {
+    @include media-breakpoint-down(xs) {
+        ul {
+            width: 100%;
+        }
+    }
+
+    li {
         a {
             display: block;
             padding: 10px;
@@ -73,6 +83,10 @@ $primary: orange;
     z-index: 100;
 }
 
+section#intro {
+    margin-top: -100px;
+}
+
 #intro-heading {
 
     z-index: 9999;
@@ -102,5 +116,45 @@ $primary: orange;
 
     50% {
         color: $white;
+    }
+}
+
+
+.ais-Pagination-list {
+    @extend .pagination;
+    @extend .justify-content-center;
+
+    li {
+        @extend .page-item;
+
+        &.ais-Pagination-item--selected {
+            @extend .active;
+        }
+
+        &.ais-Pagination-item--disabled {
+            @extend .disabled;
+        }
+
+        a,span {
+            @extend .page-link;
+        }
+    }
+
+
+}
+
+#floating-nav {
+    z-index: 999999;
+    top: 77px;
+
+    background: white;
+    ul {
+        background: white;
+        li {
+            a {
+                background: white;
+                padding: 20px 40px;
+            }
+        }
     }
 }

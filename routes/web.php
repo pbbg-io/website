@@ -21,4 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/marketplace', function() {
+    return view('marketplace.index');
+})->name('marketplace.search');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
