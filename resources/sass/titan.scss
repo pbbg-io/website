@@ -3,14 +3,34 @@ html, body {
     height: 100%;
     width: 100%;
 }
+$primary: orange;
 @import '~bootstrap/scss/bootstrap';
+@import 'stars';
 
 
 #main-nav {
+    background: rgba(0,0,0,0.6);
+
     ul li {
         a {
             display: block;
             padding: 10px;
+            //color: white;
+
+            &:hover {
+                //color: orange;
+            }
+        }
+    }
+
+    &.open {
+        top: 0;
+    }
+
+    @include media-breakpoint-down(sm){
+
+        &.open {
+            top: 120px;
         }
     }
 }
@@ -19,3 +39,40 @@ html, body {
     opacity: 50%;
 }
 
+.z-100 {
+    z-index: 100;
+}
+
+#intro-heading {
+
+    z-index: 9999;
+
+    h1 {
+        color: #FFF;
+        text-align: center;
+        font-family: "lato", sans-serif;
+        font-weight: 300;
+        font-size: 50px;
+    }
+
+    h1, h5 {
+        background: -webkit-linear-gradient(white, #38495a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.animate-flow {
+    animation: animateFlow infinite 1s ease-in-out;
+    color: $orange;
+}
+
+@keyframes animateFlow {
+    0% {
+        color: $orange;
+    }
+
+    50% {
+        color: $white;
+    }
+}
