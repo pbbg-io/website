@@ -11460,8 +11460,8 @@ a.text-dark:focus {
 }
 
 #main-nav {
-  background: rgba(0, 0, 0, 0.6);
-  border-bottom: 1px solid #773701;
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid #441f01;
 }
 
 #main-nav ul li a {

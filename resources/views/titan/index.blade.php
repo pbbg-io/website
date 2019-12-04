@@ -30,7 +30,7 @@
                     <div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Titan is still in development and is not in a stable so use with caution</div>
 
                     <pre class="bg-dark text-white-50">
-
+&nbsp;
     $ composer create-project pbbg-io/titan-demo -s dev
     $ cd titan-demo
     $ php artisan titan:install
