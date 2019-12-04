@@ -20,7 +20,7 @@
     </section>
 
 
-    <section id="install" class="m-5 p-5">
+    <section id="install" class="my-3 py-3 m-md-5 p-md-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -42,7 +42,7 @@
         </div>
     </section>
 
-    <section id="features" class="m-5 bg-light p-5">
+    <section id="features" class="my-3 py-3 m-md-5 p-md-5 bg-light">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
@@ -66,7 +66,7 @@
         </div>
     </section>
 
-    <section id="github" class="m-5">
+    <section id="github" class="my-3 py-3 m-md-5 p-md-5">
         <div class="container">
             <div class="col text-center">
                 <h3>Best of all, it's free, forever</h3>
