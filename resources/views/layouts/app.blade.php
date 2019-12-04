@@ -20,7 +20,7 @@
     </a>
 </div>
 
-<nav class="text-center fixed-top d-none d-md-flex justify-content-center align-content-center d-flex open" id="main-nav">
+<nav class="text-center fixed-top d-none d-md-flex justify-content-center align-content-center" id="main-nav">
     <ul class="list-unstyled mb-0 p-2">
         <li class="d-inline-block">
             <a href="#intro"><i class="fas fa-raindrops"></i> Intro</a>
