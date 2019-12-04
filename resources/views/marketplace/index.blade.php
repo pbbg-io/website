@@ -44,7 +44,7 @@
 
         const search = instantsearch({
             indexName: 'extensions',
-            searchClient: algoliasearch('TVTMODCB2M', '51f8ef9450eb39c3828e6badbebaa5bb'),
+            searchClient: algoliasearch('{{ env('ALGOLIA_APP_ID') }}', '{{ env('ALGOLIA_SEARCH_API') }}'),
         });
 
         let configuration = instantsearch.widgets.configure({
