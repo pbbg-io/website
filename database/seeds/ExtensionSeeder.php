@@ -19,6 +19,10 @@ class ExtensionSeeder extends Seeder
             $extension->name = $faker->words(1, true);
             $extension->author = 1;
             $extension->description = $faker->paragraphs(3, true);
+            $extension->rating = 0;
+            $extension->version = 'dev';
+            $extension->ratings = 0;
+            $extension->installs = 0;
             $extension->save();
         }
     }

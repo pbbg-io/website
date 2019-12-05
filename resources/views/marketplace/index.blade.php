@@ -24,9 +24,14 @@
             </div>
         </div>
         <div class="container">
-            <div id="hits" class="row"></div>
             <div class="row">
-                <div class="col-12 justify-content-center">
+                <div class="col-sm-12 col-md-3">
+                    <h5>Rating</h5>
+                    <div id="rating-menu"></div>
+                </div>
+                <div class="col-sm-12 col-md-9 justify-content-center">
+
+                    <div id="hits" class="row"></div>
                     <div id="pagination"></div>
                 </div>
             </div>
@@ -51,22 +56,37 @@
             hitsPerPage: 4,
         });
 
+
+
         const renderHits = (renderOptions, isFirstRender) => {
             const {hits, widgetParams} = renderOptions;
 
             widgetParams.container.innerHTML = `
-      ${hits.map(item =>
-                `
+      ${hits.map(item => {
+
+                    let stars = '';
+
+                    item.rating = Math.floor(item.rating);
+
+                    if (item.rating > 0)
+                        for (let i = 0; i < item.rating; i++) {
+                            stars = `${stars} <i class="fas fa-star text-primary"></i>`;
+                        }
+                    else
+                        stars = 'Unrated';
+
+                    return `
     <div class="col-12">
             <div class="card mb-3">
                 <div class="card-header">
-                    <h3>${instantsearch.highlight({attribute: 'name', hit: item})}</h3>
+                    <h3>${instantsearch.highlight({attribute: 'name', hit: item})} <span class='float-right'>${stars}</span></h3>
                     <div class="card-body">
                         <p>${instantsearch.highlight({attribute: 'description', hit: item, limit: 50})}</p>
                     </div>
                 </div>
             </div>
     </div>`
+                }
             )
                 .join('')}
   `;
@@ -118,7 +138,7 @@
 
 
         const renderStats = (renderOptions, isFirstRender) => {
-            const { nbHits, processingTimeMS, query, widgetParams } = renderOptions;
+            const {nbHits, processingTimeMS, query, widgetParams} = renderOptions;
 
             if (isFirstRender) {
                 return;
@@ -142,6 +162,48 @@
         // Create the custom widget
         const customStats = instantsearch.connectors.connectStats(renderStats);
 
+        const renderRatingMenu = (renderOptions, isFirstRender) => {
+            const { items, refine, createURL, widgetParams } = renderOptions;
+
+            let ul = document.createElement('ul');
+
+            if (isFirstRender) {
+                ul.classList.add('list-unstyled');
+                widgetParams.container.appendChild(ul);
+
+                return;
+            }
+
+            widgetParams.container.querySelector('ul').innerHTML = items
+                .map(
+                    item =>
+                        `<li>
+                          <a
+                            class="${item.isRefined ? 'refined' : ''}"
+                            href="${createURL(item.value)}"
+                            data-value="${item.value}"
+                            style="font-weight: ${item.isRefined ? 'bold' : ''}"
+                          >
+                            ${item.stars.map(isFilled => (isFilled ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>')).join('')}
+                            <span class="float-right badge badge-secondary">${item.count}</span>
+                          </a>
+                        </li>`
+                )
+                .join('');
+
+            [...widgetParams.container.querySelectorAll('a')].forEach(element => {
+                element.addEventListener('click', event => {
+                    event.preventDefault();
+                    refine(event.currentTarget.dataset.value);
+                });
+            });
+        };
+
+        // Create the custom widget
+        const customRatingMenu = instantsearch.connectors.connectRatingMenu(
+            renderRatingMenu
+        );
+
         // instantiate custom widget
         search.addWidgets([
             customSearchBox({
@@ -160,6 +222,10 @@
 
             customStats({
                 container: document.querySelector('#stats'),
+            }),
+            customRatingMenu({
+                container: document.querySelector('#rating-menu'),
+                attribute: 'rating',
             })
         ]);
 

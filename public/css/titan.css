@@ -11811,3 +11811,16 @@ section#intro {
   padding: 20px 40px;
 }
 
+#rating-menu a {
+  display: block;
+}
+
+#rating-menu a:not(.refined) {
+  color: #feb679;
+}
+
+#rating-menu a.refined,
+#rating-menu a:hover {
+  color: #fd7e14;
+}
+

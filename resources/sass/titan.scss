@@ -169,3 +169,15 @@ section#intro {
         }
     }
 }
+
+#rating-menu {
+    a {
+        display: block;
+        &:not(.refined) {
+            color: lighten($orange, 20%);
+        }
+        &.refined, &:hover {
+            color: $orange;
+        }
+    }
+}
