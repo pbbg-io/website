@@ -55,6 +55,12 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('account') }}">
+                        {{ __('Account') }}
+                    </a>
+                    <a class="dropdown-item" href="{{ route('profile', \Auth::user()->name) }}">
+                        {{ __('Profile') }}
+                    </a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -71,6 +77,13 @@
 </nav>
 
 <div id="nav-spacer"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            @include('flash::message')
+        </div>
+    </div>
+</div>
 @yield('content')
 
 <!-- Optional JavaScript -->

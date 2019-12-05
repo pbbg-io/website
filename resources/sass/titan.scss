@@ -28,7 +28,7 @@ $primary: orange;
         }
     }
 
-    li {
+    li:not(.dropdown) {
         a {
             display: block;
             padding: 25px 20px;

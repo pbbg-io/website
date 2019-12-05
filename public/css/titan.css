@@ -11684,7 +11684,7 @@ a.text-dark:focus {
   }
 }
 
-#main-nav li a {
+#main-nav li:not(.dropdown) a {
   display: block;
   padding: 25px 20px;
   -webkit-transition: all ease-in-out 0.4s;
@@ -11692,18 +11692,18 @@ a.text-dark:focus {
   text-decoration: none;
 }
 
-#main-nav li a i {
+#main-nav li:not(.dropdown) a i {
   color: #fff;
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
   margin-right: 10px;
 }
 
-#main-nav li a:hover {
+#main-nav li:not(.dropdown) a:hover {
   color: #fff;
 }
 
-#main-nav li a:hover i {
+#main-nav li:not(.dropdown) a:hover i {
   color: #fd7e14;
 }
 

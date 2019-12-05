@@ -28,3 +28,12 @@ Route::get('/marketplace', function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile/{name}', 'ProfileController@index')
+    ->name('profile');
+
+Route::get('/account', 'AccountController@index')
+    ->name('account');
+
+Route::post('/account/changepassword', 'AccountController@changePassword')
+    ->name('account.change_password');
