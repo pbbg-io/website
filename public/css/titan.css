@@ -11676,7 +11676,6 @@ a.text-dark:focus {
 
 #main-nav {
   background: rgba(0, 0, 0, 0.8);
-  border-bottom: 1px solid #441f01;
 }
 
 @media (max-width: 575.98px) {
@@ -11687,7 +11686,25 @@ a.text-dark:focus {
 
 #main-nav li a {
   display: block;
-  padding: 10px;
+  padding: 25px 20px;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+  text-decoration: none;
+}
+
+#main-nav li a i {
+  color: #fff;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+  margin-right: 10px;
+}
+
+#main-nav li a:hover {
+  color: #fff;
+}
+
+#main-nav li a:hover i {
+  color: #fd7e14;
 }
 
 @media (max-width: 991.98px) {
@@ -11781,7 +11798,7 @@ section#intro {
 
 #floating-nav {
   z-index: 999999;
-  top: 77px;
+  top: 74px;
   background: white;
 }
 

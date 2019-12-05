@@ -22,8 +22,8 @@
     </a>
 </div>
 
-<nav class="text-center fixed-top d-none d-md-flex navbar" id="main-nav">
-    <ul class="list-unstyled mb-0 p-2">
+<nav class="text-center fixed-top d-none d-md-flex navbar p-0" id="main-nav">
+    <ul class="list-unstyled mb-0">
         <li class="d-inline-block">
             <a href="/" onclick="hideMenu()"><i class="fas fa-home"></i> Home</a>
         </li>
@@ -37,7 +37,7 @@
             <a href="https://github.com/pbbg-io/titan-demo"><i class="fab fa-github"></i> Github</a>
         </li>
     </ul>
-    <ul class="list-unstyled mb-0 p-2">
+    <ul class="list-unstyled mb-0">
         @guest
             <li class="d-inline-block">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

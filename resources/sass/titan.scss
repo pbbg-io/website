@@ -21,7 +21,6 @@ $primary: orange;
 }
 #main-nav {
     background: rgba(0,0,0,0.8);
-    border-bottom: 1px solid darken($orange, 40%);
 
     @include media-breakpoint-down(xs) {
         ul {
@@ -32,11 +31,23 @@ $primary: orange;
     li {
         a {
             display: block;
-            padding: 10px;
+            padding: 25px 20px;
             //color: white;
+            transition: all ease-in-out 0.4s;
+            text-decoration: none;
+
+            i {
+                color: $white;
+                transition: all ease-in-out 0.4s;
+                margin-right: 10px;
+            }
 
             &:hover {
-                //color: orange;
+                color: $white;
+
+                i {
+                    color: $orange;
+                }
             }
         }
     }
@@ -145,7 +156,7 @@ section#intro {
 
 #floating-nav {
     z-index: 999999;
-    top: 77px;
+    top: 74px;
 
     background: white;
     ul {
