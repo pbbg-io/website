@@ -11824,3 +11824,13 @@ section#intro {
   color: #fd7e14;
 }
 
+section#marketplace div#hits .card {
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+
+section#marketplace div#hits .card:hover {
+  border-color: #fd7e14;
+  box-shadow: 1px 1px 1px rgba(253, 126, 20, 0.5);
+}
+

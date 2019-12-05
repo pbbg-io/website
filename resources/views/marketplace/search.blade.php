@@ -2,8 +2,7 @@
 
 @section('content')
 
-    <section id="header">
-
+    <section id="marketplace">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -37,7 +36,6 @@
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('scripts')
@@ -73,17 +71,19 @@
                             stars = `${stars} <i class="fas fa-star text-primary"></i>`;
                         }
                     else
-                        stars = 'Unrated';
+                        stars = '';
+
 
                     return `
     <div class="col-12">
             <div class="card mb-3">
+            <a href="{{ url('/') }}/marketplace/${item.slug}/" class="position-absolute w-100 h-100"></a>
                 <div class="card-header">
-                    <h3>${instantsearch.highlight({attribute: 'name', hit: item})} <span class='float-right'>${stars}</span></h3>
-                    <div class="card-body">
-                        <p>${instantsearch.highlight({attribute: 'description', hit: item, limit: 50})}</p>
-                    </div>
+                    <h3 class="m-0">${instantsearch.highlight({attribute: 'name', hit: item})} <span class='float-right'>${stars}</span></h3>
                 </div>
+                    <div class="card-body">
+                    <p>${item._snippetResult.description.value}</p>
+                    </div>
             </div>
     </div>`
                 }
@@ -176,8 +176,10 @@
 
             widgetParams.container.querySelector('ul').innerHTML = items
                 .map(
-                    item =>
-                        `<li>
+                    item => {
+
+                        if(item.count > 0)
+                        return `<li>
                           <a
                             class="${item.isRefined ? 'refined' : ''}"
                             href="${createURL(item.value)}"
@@ -188,6 +190,7 @@
                             <span class="float-right badge badge-secondary">${item.count}</span>
                           </a>
                         </li>`
+                    }
                 )
                 .join('');
 

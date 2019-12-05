@@ -14,15 +14,15 @@ class ExtensionSeeder extends Seeder
 
         $faker = Faker\Factory::create();
 
-        for($i=0;$i<50;$i++) {
+        for($i=0;$i<10;$i++) {
             $extension = new \App\Extensions();
             $extension->name = $faker->words(1, true);
             $extension->author = 1;
             $extension->description = $faker->paragraphs(3, true);
-            $extension->rating = 0;
+            $extension->rating = mt_rand(1,5);
             $extension->version = 'dev';
-            $extension->ratings = 0;
-            $extension->installs = 0;
+            $extension->ratings = mt_rand(0,300);
+            $extension->installs = mt_rand(1200, 34000);
             $extension->save();
         }
     }

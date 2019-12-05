@@ -181,3 +181,13 @@ section#intro {
         }
     }
 }
+
+section#marketplace {
+    div#hits .card {
+        transition: all ease-in-out  0.3s;
+        &:hover {
+            border-color: $orange;
+            box-shadow: 1px 1px 1px rgba($orange, 50%);
+        }
+    }
+}

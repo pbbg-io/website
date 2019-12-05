@@ -9,7 +9,8 @@ use Spatie\Sluggable\SlugOptions;
 
 class Extensions extends Model
 {
-    use Searchable,
+    use
+        Searchable,
         HasSlug;
 
     /**
@@ -18,7 +19,20 @@ class Extensions extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom(['author_name', 'name'])
             ->saveSlugsTo('slug');
+    }
+
+    public function getAuthorNameAttribute() {
+        return $this->authorMeta->name;
+    }
+
+    public function authorMeta() {
+        return $this->hasOne(User::class, 'id', 'author');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

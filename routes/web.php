@@ -21,9 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/marketplace', function() {
-    return view('marketplace.index');
-})->name('marketplace.search');
+Route::get('/marketplace', 'MarketplaceController@search')->name('marketplace.search');
 
 Auth::routes();
 
@@ -37,3 +35,6 @@ Route::get('/account', 'AccountController@index')
 
 Route::post('/account/changepassword', 'AccountController@changePassword')
     ->name('account.change_password');
+
+Route::get('/marketplace/{extension}', 'MarketplaceController@show')
+    ->name('marketplace.show');
