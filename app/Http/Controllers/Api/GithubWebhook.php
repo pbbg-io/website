@@ -13,24 +13,22 @@ class GithubWebhook extends Controller
     public function release(Request $request)
     {
         $rv = Setting::firstOrNew([
-            'key'   =>   'latest_version'
+            'key' => 'latest_version'
         ]);
 
         $signature = $request->server('HTTP_X_HUB_SIGNATURE');
 
-        $payload = $request->input('payload');
-
-        dd($signature, $payload, $request->all(), $request->input('payload'));
+        $payload = $request->all();
 
         if (!$this->validateSignature($signature, $payload)) {
             abort(404, 'Invalid Signature');
         }
 
-        $data = json_decode($payload);
+        if (isset($payload->release->tag_name)) {
+            $rv->value = $payload['release']['tag_name'];
 
-        $rv->value = $data->release->tag_name;
-
-        $rv->save();
+            $rv->save();
+        }
     }
 
     protected function validateSignature($gitHubSignatureHeader, $payload)
@@ -40,7 +38,8 @@ class GithubWebhook extends Controller
             // see https://developer.github.com/webhooks/securing/
             return false;
         }
-        $payloadHash = hash_hmac($algo, $payload, env("GITHUB_SECRET"));
+        $payload = json_encode($payload);
+        $payloadHash = hash_hmac($algo, "{$payload}", env("GITHUB_SECRET"));
         return ($payloadHash === $gitHubSignature);
     }
 }
