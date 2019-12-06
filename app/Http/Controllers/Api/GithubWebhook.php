@@ -18,17 +18,15 @@ class GithubWebhook extends Controller
 
         $signature = $request->server('HTTP_X_HUB_SIGNATURE');
 
-        $payload = $request->input('payload');
+        $payload = $request->all();
 
-        dd($signature, $payload, $request->all());
+        dump($signature, $payload);
 
         if (!$this->validateSignature($signature, $payload)) {
             abort(404, 'Invalid Signature');
         }
 
-        $data = json_decode($payload);
-
-        $rv->value = $data->release->tag_name;
+        $rv->value = $payload->release->tag_name;
 
         $rv->save();
     }
