@@ -24,13 +24,11 @@ class GithubWebhook extends Controller
             abort(404, 'Invalid Signature');
         }
 
-        $rv->value = 'dev';
-
         if (isset($payload['release']['tag_name']) && $payload['action'] === 'published') {
             $rv->value = str_replace('v', '', $payload['release']['tag_name']);
+            $rv->save();
         }
 
-        $rv->save();
     }
 
     protected function validateSignature($gitHubSignatureHeader, $payload)
