@@ -24,3 +24,7 @@ Route::post('idlescape/{name}', function() {
         ]);
         $user->save();
 });
+
+Route::get('/version', 'Api\VersionController@index');
+
+Route::post('/github/webhook/release', 'Api\GithubWebhook@release');
