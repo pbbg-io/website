@@ -12,7 +12,9 @@ class GithubWebhook extends Controller
 
     public function release(Request $request)
     {
-        $rv = Setting::where('key', 'latest_version')->firstOrNew();
+        $rv = Setting::firstOrNew([
+            'key'   =>   'latest_version'
+        ]);
 
         $signature = $request->server('HTTP_X_HUB_SIGNATURE');
 
