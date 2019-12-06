@@ -41,7 +41,7 @@ class GithubWebhook extends Controller
         $payload = json_encode($payload);
         $payloadHash = hash_hmac($algo, "{$payload}", env("GITHUB_SECRET"));
 
-        dd($payload, $algo, $payloadHash, $gitHubSignature);
+        dd($payload, $algo, $payloadHash, $gitHubSignature, env('GITHUB_SECRET'));
 
         return ($payloadHash === $gitHubSignature);
     }
