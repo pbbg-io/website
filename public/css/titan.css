@@ -11575,7 +11575,7 @@ a.text-dark:focus {
 
 #star-container {
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  background: radial-gradient(ellipse at bottom, #9d4008 0%, #090a0f 100%);
   overflow: hidden;
   width: 100%;
   position: absolute;
@@ -11765,7 +11765,7 @@ section#intro {
 
 #intro-heading h1,
 #intro-heading h5 {
-  background: -webkit-linear-gradient(white, #38495a);
+  background: -webkit-linear-gradient(white, #fb5f01);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
