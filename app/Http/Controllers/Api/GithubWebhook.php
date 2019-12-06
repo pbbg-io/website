@@ -20,6 +20,8 @@ class GithubWebhook extends Controller
 
         $payload = $request->input('payload');
 
+        dd($signature, $payload, $request->all());
+
         if (!$this->validateSignature($signature, $payload)) {
             abort(404, 'Invalid Signature');
         }
