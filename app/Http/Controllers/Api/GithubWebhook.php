@@ -26,8 +26,8 @@ class GithubWebhook extends Controller
 
         $rv->value = 'dev';
 
-        if (isset($payload->release->tag_name)) {
-            $rv->value = $payload['release']['tag_name'];
+        if (isset($payload['release']['tag_name'])) {
+            $rv->value = str_replace('v', '', $payload['release']['tag_name']);
         }
 
         $rv->save();
