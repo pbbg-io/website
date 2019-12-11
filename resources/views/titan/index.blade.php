@@ -45,8 +45,8 @@
 
                         <pre class="bg-dark text-white-50">
 &nbsp;
-    $ composer create-project pbbg-io/titan-demo -s dev
-    $ cd titan-demo
+    $ composer create-project pbbg-io/titan -s dev
+    $ cd titan
     $ php artisan titan:install
     $ php artisan titan:resources
     $ yarn && yarn run production
