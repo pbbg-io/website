@@ -30,5 +30,5 @@ Route::get('/version', 'Api\VersionController@index');
 Route::post('/github/webhook/release', 'Api\GithubWebhook@release');
 
 Route::get('/extensions', function() {
-    return \App\Extensions::paginate(24);
+    return \App\Extensions::all();
 });
