@@ -31,10 +31,10 @@
             <a href="{{ route('marketplace.search') }}" onclick="hideMenu()"><i class="fas fa-balance-scale-left"></i> Marketplace</a>
         </li>
         <li class="d-inline-block">
-            <a href="https://pbbg-io.gitbook.io/titan"><i class="fas fa-books"></i> Documentation</a>
+            <a href="https://pbbg-io.gitbook.io/titan" target="_blank" onclick="hideMenu()"><i class="fas fa-books"></i> Documentation</a>
         </li>
         <li class="d-inline-block">
-            <a href="https://github.com/pbbg-io/titan-demo"><i class="fab fa-github"></i> Github</a>
+            <a href="https://github.com/pbbg-io/titan-demo" target="_blank" onclick="hideMenu()"><i class="fab fa-github"></i> Github</a>
         </li>
     </ul>
     <ul class="list-unstyled mb-0">
