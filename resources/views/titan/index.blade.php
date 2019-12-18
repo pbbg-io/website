@@ -58,19 +58,43 @@
 
         <section id="features" class="my-3 py-3 m-md-5 p-md-5 bg-light">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-5">
                     <div class="col-12 text-center">
                         <h2 class="mb-5">Features</h2>
                     </div>
                     @foreach($features as $feature_title => $feature)
-                        <div class="col-sm-12 col-md-4 feature-item @if($loop->iteration != count($features)) mb-5 @endif text-center">
-                            <div class="text-center">
-                                <div class="icon p-4 text-primary">
-                                    <i class="{{ $feature['icon'] }} fa-3x"></i>
+                        <div class="col-sm-12 col-md-4 @if($loop->iteration != count($features)) mb-5 @endif text-center">
+                            <div class="feature-item p-4">
+                                <div class="text-center">
+                                    <div class="icon p-4 text-primary">
+                                        <i class="{{ $feature['icon'] }} fa-3x"></i>
+                                    </div>
+                                    <h5 class="font-weight-bold">{{ $feature_title }}</h5>
                                 </div>
-                                <h3>{{ $feature_title }}</h3>
+                                <p>{{ $feature['description'] }}</p>
                             </div>
-                            <p>{{ $feature['description'] }}</p>
+                        </div>
+                        @if($loop->iteration % 3 == 0)
+                            <div class="w-100"></div>
+                        @endif
+                    @endforeach
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h2 class="mb-5">Built With</h2>
+                    </div>
+                    @foreach($builtWith as $feature_title => $feature)
+                        <div class="col-sm-12 col-md-4 @if($loop->iteration != count($features)) mb-5 @endif text-center">
+                            <div class="feature-item p-4">
+                                <div class="text-center">
+                                    <div class="icon p-4 text-primary">
+                                        <i class="{{ $feature['icon'] }} fa-3x"></i>
+                                    </div>
+                                    <h5 class="font-weight-bold">{{ $feature_title }}</h5>
+                                </div>
+                                <p>{{ $feature['description'] }}</p>
+                            </div>
                         </div>
                         @if($loop->iteration % 3 == 0)
                             <div class="w-100"></div>

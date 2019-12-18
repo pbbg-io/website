@@ -29,6 +29,25 @@ class TitanController extends Controller
                 'name'  =>  'Cronjobs',
                 'description'   =>  'Built in management for handling cron jobs and scheduled tasks'
             ],
+            'Areas'   =>  [
+                'icon'  =>  'fal fa-globe',
+                'name'  =>  'Areas',
+                'description'   =>  'Manage the areas the user can go to'
+            ],
+            'Character Creation'   =>  [
+                'icon'  =>  'fal fa-swords',
+                'name'  =>  'Character Creation',
+                'description'   =>  'Character creation is out the box, allow one or many characters per user'
+            ],
+            'Stats'   =>  [
+                'icon'  =>  'fal fa-heart',
+                'name'  =>  'Stats',
+                'description'   =>  'Stat system built in for characters, create stats on the go, health, money, experience'
+            ],
+        ];
+
+        $builtWith = [
+
             'Laravel'   =>  [
                 'icon'  =>  'fab fa-laravel',
                 'name'  =>  'ACL',
@@ -46,6 +65,6 @@ class TitanController extends Controller
             ],
         ];
 
-        return view('titan.index', compact('features'));
+        return view('titan.index', compact('features', 'builtWith'));
     }
 }
